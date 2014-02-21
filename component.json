@@ -1,0 +1,14 @@
+{
+  "name": "refs",
+  "repo": "ripplejs/refs",
+  "description": "Easily access elements within the view using ref attributes",
+  "version": "0.0.1",
+  "keywords": [],
+  "license": "MIT",
+  "development": {
+    "component/assert": "*"
+  },
+  "scripts": [
+    "index.js"
+  ]
+}
