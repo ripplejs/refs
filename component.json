@@ -6,7 +6,8 @@
   "keywords": [],
   "license": "MIT",
   "development": {
-    "component/assert": "*"
+    "component/assert": "*",
+    "ripplejs/ripple": "0.0.7"
   },
   "scripts": [
     "index.js"
