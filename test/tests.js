@@ -10,31 +10,34 @@ describe('refs', function(){
       .use(refs);
   });
 
-  it('should not have a reference before mounting', function(){
+  it('should have references', function(){
     var view = new View();
-    assert(view.refs == null);
+    assert(view.refs);
   });
 
   it('should store the ref when mounted', function () {
     var view = new View();
-    view.mount(document.body);
+    view.appendTo(document.body);
     assert(view.refs.name.nodeName);
-    view.unmount();
+    view.destroy();
   });
 
   it('should not share refs between instances', function () {
     var one = new View();
     var two = new View();
-    one.mount(document.body);
-    two.mount(document.body);
-    assert(one.refs.name !== two.refs.name);
+    one.appendTo(document.body);
+    two.appendTo(document.body);
+    assert(one.refs !== two.refs);
+    one.destroy();
+    two.destroy();
   });
 
-  it('should remove references when unmounted', function () {
+  it('should remove references when destroyed', function () {
     var view = new View();
-    view.mount(document.body);
-    view.unmount();
+    view.appendTo(document.body);
+    view.destroy();
     assert(view.refs == null);
   });
+
 
 });
