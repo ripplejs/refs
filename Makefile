@@ -11,4 +11,12 @@ clean:
 test: build
 	mocha-phantomjs test/index.html
 
-.PHONY: clean test
+standalone:
+	component build --standalone ripple-refs --name standalone
+	-rm -r dist
+	mkdir dist
+	sed 's/this\[\"ripple-refs\"\]/this.ripple.refs/g' build/standalone.js > dist/ripple-refs.js
+	rm build/standalone.js
+	minify dist/ripple-refs.js dist/ripple-refs.min.js
+
+.PHONY: clean test standalone
