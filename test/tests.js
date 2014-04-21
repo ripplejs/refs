@@ -6,19 +6,22 @@ describe('refs', function(){
   var View;
 
   beforeEach(function () {
-    View = ripple('<input ref="name" value="foo" name="name" />')
+    View = ripple('<form><input ref="name" value="foo" name="name" /><input ref="name1" value="bar" name="name1" /></form>')
       .use(refs);
   });
 
   it('should have references', function(){
     var view = new View();
     assert(view.refs);
+    assert(view.refs.name);
+    assert(view.refs.name1);
   });
 
   it('should store the ref when mounted', function () {
     var view = new View();
     view.appendTo(document.body);
     assert(view.refs.name.nodeName);
+    assert(view.refs.name1.nodeName);
     view.destroy();
   });
 
