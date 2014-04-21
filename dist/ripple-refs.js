@@ -204,7 +204,7 @@ require.register("refs/index.js", function(exports, require, module){
 module.exports = function(View) {
   View.directive('ref', {
     bind: function(){
-      this.view.refs = {};
+      this.view.refs = this.view.refs || {};
     },
     update: function(value){
       this.view.refs[value] = this.node;
@@ -214,10 +214,11 @@ module.exports = function(View) {
     }
   });
 };
+
 });if (typeof exports == "object") {
   module.exports = require("refs");
 } else if (typeof define == "function" && define.amd) {
-  define([], function(){ return require("refs"); });
+  define(function(){ return require("refs"); });
 } else {
   this.ripple.refs = require("refs");
 }})();
