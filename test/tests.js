@@ -39,5 +39,23 @@ describe('refs', function(){
     assert(view.refs == null);
   });
 
+  it('should work with several refs in the same view', function () {
+    View = ripple('<div><input ref="name" value="foo" name="name" /><input ref="password" type="password" name="pwd" /></div>')
+      .use(refs);
+    var view = new View();
+    view.appendTo(document.body);
+    assert(view.refs.name.nodeName);
+    assert(view.refs.password.nodeName);
+    view.destroy();
+  });
 
+  it('should work with nested refs', function () {
+    View = ripple('<div ref="container"><input ref="name" value="foo" name="name" /></div>')
+      .use(refs);
+    var view = new View();
+    view.appendTo(document.body);
+    assert(view.refs.container.nodeName);
+    assert(view.refs.name.nodeName);
+    view.destroy();
+  });
 });
