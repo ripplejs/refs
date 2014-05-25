@@ -4,3 +4,4 @@
 
  * Merge pull request #3 from olivoil/feature/multiple-refs
  * add test cases for multiple refs
+ * Removed standalone build
