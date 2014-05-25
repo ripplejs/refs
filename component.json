@@ -7,7 +7,7 @@
   "license": "MIT",
   "development": {
     "component/assert": "*",
-    "ripplejs/ripple": "0.2.0"
+    "ripplejs/ripple": "*"
   },
   "scripts": [
     "index.js"
