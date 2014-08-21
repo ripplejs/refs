@@ -17,7 +17,7 @@ Use the plugin
 var refs = require('refs');
 var ripple = require('ripple');
 
-var View = ripple(template).use(refs);
+var View = ripple(template).use(refs());
 ```
 
 Then add references in your template:
