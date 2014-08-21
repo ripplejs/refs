@@ -7,7 +7,7 @@ describe('refs', function(){
 
   beforeEach(function () {
     View = ripple('<input ref="name" value="foo" name="name" />')
-      .use(refs);
+      .use(refs());
   });
 
   it('should have references', function(){
@@ -41,7 +41,7 @@ describe('refs', function(){
 
   it('should work with several refs in the same view', function () {
     View = ripple('<div><input ref="name" value="foo" name="name" /><input ref="password" type="password" name="pwd" /></div>')
-      .use(refs);
+      .use(refs());
     var view = new View();
     view.appendTo(document.body);
     assert(view.refs.name.nodeName);
@@ -51,7 +51,7 @@ describe('refs', function(){
 
   it('should work with nested refs', function () {
     View = ripple('<div ref="container"><input ref="name" value="foo" name="name" /></div>')
-      .use(refs);
+      .use(refs());
     var view = new View();
     view.appendTo(document.body);
     assert(view.refs.container.nodeName);
